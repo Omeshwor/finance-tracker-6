@@ -6,5 +6,8 @@
         <strong>Company Name: </strong><em><%= @stock.name %></em>
         <hr>
         <strong>Last Price: </strong><em><%= @stock.last_price %></em>
+        <hr>
+        <%= link_to 'Add to portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker),
+            class: "btn btn-primary", method: :post %>
     </div>
 <% end %>
