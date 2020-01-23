@@ -1,0 +1,20 @@
+<table class="table table-bordered table-info table-hover col-9">
+    <thead>
+        <tr>
+            <th scope="col">email</th>
+            <th scope="col">Company Name</th>
+            <th scope="col">#</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tracked_friend.each do |friend| %>
+            <tr>
+                <td><%= friend.email %></td>
+                <td><%= friend.email %></td>
+                <td><%= friend.email %></td>
+                <td><%= link_to 'Remove friend', "#", method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
