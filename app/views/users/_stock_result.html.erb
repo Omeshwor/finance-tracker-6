@@ -23,3 +23,24 @@
         <% end %>
     </div>
 <% end %>
+<% if @friend %>
+    <div class="card card-header col-9">
+        <strong>Symbol: </strong><em><%= @friend.email %></em>
+        <hr>
+        <strong>Company Name: </strong><em><%= @friend.email %></em>
+        <hr>
+        <strong>Last Price: </strong><em><%= @friend.email %></em>
+        <hr>
+        <% if current_user.friend?(@friend.email) %>
+          <%= link_to 'Add to portfolio', user_friends_path(user: current_user, email: @friend.email),
+            class: "btn btn-primary", method: :post %>
+        <% else %>
+          <span class:"badge badge-secondary">
+            You are already tracking
+            <% if current_user.friend_already_tracked?(@friend.email) %>
+              this stock
+            <% end %>
+          </span>
+        <% end %>
+    </div>
+<% end %>
