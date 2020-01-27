@@ -1,0 +1,32 @@
+<h2>User <%= @user.full_name.capitalize %>'s details </h2>
+
+<table class="table table-bordered table-success table-hover col-9">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @user.full_name %></td>
+      <td><%= @user.email %></td>
+      <td>
+        <% if current_user.not_friends_with?(@user.id) %>
+          <%= link_to 'Add as friend', friendships_path(friend: @user), class: "btn btn-sm btn-warning", method: :post %>
+        <% else %>
+          <span>Already on the friend's list</span>
+        <% end %>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<% if !@tracked_stock.empty? %>
+  <%= render 'stocks/stock_list' %>
+<% else %>
+  <h3><span class="badge badge-secondary"><%= @user.full_name.capitalize %> is not tracking any stocks right now</span></h3>
+<% end %>

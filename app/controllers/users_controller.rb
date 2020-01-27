@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def my_portfolio
     @tracked_stock = current_user.stocks.order(last_price: :desc)
+    @user = current_user
   end
 
   def my_friends
@@ -10,6 +11,11 @@ class UsersController < ApplicationController
 
   def search_friend
     render json: params[:friend]
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @tracked_stock = @user.stocks
   end
 
   def search
