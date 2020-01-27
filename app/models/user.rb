@@ -31,16 +31,6 @@ class User < ApplicationRecord
     "Anonymous"
   end
 
-  def friend_already_tracked?(email)
-    friend = Friend.check_db(email)
-    return false unless friend
-    friends.where(id: friends.id).exists?
-  end
-
-  def can_track_friend?(email)
-    !friend_already_tracked?(email)
-  end
-
   def self.matches(field_name, param)
     where("#{field_name} like ?", "%#{param}%")
   end
@@ -62,6 +52,10 @@ class User < ApplicationRecord
 
   def self.email_matches(param)
     matches('email', param)
+  end
+
+  def except_current_user(users)
+    users.reject { |user| user.id == self.id }
   end
 
 end
