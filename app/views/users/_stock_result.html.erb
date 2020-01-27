@@ -40,7 +40,7 @@
               <td>
                 <%= link_to 'View Profile', "#", class: "btn btn-sm btn-info" %>
                 <% if current_user.not_friends_with?(friend.id) %>
-                  <%= link_to 'Add as friend', "#", class: "btn btn-sm btn-warning" %>
+                  <%= link_to 'Add as friend', friendships_path(friend: friend), class: "btn btn-sm btn-warning", method: :post %>
                 <% else %>
                   <span>Already on the friend's list</span>
                 <% end %>
