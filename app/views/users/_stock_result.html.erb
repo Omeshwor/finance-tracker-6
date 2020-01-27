@@ -39,7 +39,11 @@
               <td><%= friend.email %></td>
               <td>
                 <%= link_to 'View Profile', "#", class: "btn btn-sm btn-info" %>
-                <%= link_to 'Add as friend', "#", class: "btn btn-sm btn-warning" %>
+                <% if current_user.not_friends_with?(friend.id) %>
+                  <%= link_to 'Add as friend', "#", class: "btn btn-sm btn-warning" %>
+                <% else %>
+                  <span>Already on the friend's list</span>
+                <% end %>
               </td>
           </tr>
       <% end %>
