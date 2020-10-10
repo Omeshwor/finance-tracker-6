@@ -23,6 +23,7 @@ Then('I should see that my account is confirmed') do
 end
 
 Given('I am a registered user') do
+<<<<<<< HEAD
   @@registered_user = FactoryBot.create(:user, :email => "tester@testdomain.test", :password => "pa$$word")
 end
 
@@ -51,4 +52,27 @@ end
 
 Then('I should be redirected to log in page') do
   expect(page).to have_content("Log in")
+=======
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When('I fill in the login form') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then('I should be logged in') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Given('I am logged in') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+When('I click on the logout button') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then('I should be redirected to log in page') do
+  pending # Write code here that turns the phrase above into concrete actions
+>>>>>>> 0b5b20f9ddf4a59665500e2949fffb38b99493ff
 end
