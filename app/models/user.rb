@@ -10,7 +10,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
   def can_track_stock?(ticker_symbol)
     under_stock_limit? && !stock_already_tracked?(ticker_symbol)
