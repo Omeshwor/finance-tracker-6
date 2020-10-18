@@ -1,6 +1,8 @@
 <%= render 'layouts/messages' %>
 <% if @stock %>
     <div class="card card-header col-9">
+      <h3>Your searched stock<h3>
+      <hr>
         <strong>Symbol: </strong><em><%= @stock.ticker %></em>
         <hr>
         <strong>Company Name: </strong><em><%= @stock.name %></em>
@@ -24,6 +26,8 @@
     </div>
 <% end %>
 <% if @friends %>
+<h3>Your searched friend</h3>
+<hr>
 <table class="table table-bordered table-success table-hover col-9">
   <thead>
       <tr>
